@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,7 +59,7 @@ public class HackalistAPI {
      * Sweep the API endpoints from the start and update DB
      */
 
-    @Scheduled(initialDelay = 1000, fixedDelay = 21600000)
+//    @Scheduled(initialDelay = 1000, fixedDelay = 21600000)
     public void updateHackalistHackathonData() {
         //Default Start dates of the hackalist API
         int currYear = 2014;

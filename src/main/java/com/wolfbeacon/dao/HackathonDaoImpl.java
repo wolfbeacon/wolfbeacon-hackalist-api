@@ -1,14 +1,14 @@
 package com.wolfbeacon.dao;
 
 import com.wolfbeacon.model.Hackathon;
-import com.wolfbeacon.model.Hackathon_;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.Date;
 import java.util.List;
@@ -22,22 +22,32 @@ public class HackathonDaoImpl implements HackathonDaoExtension {
     @Override
     @SuppressWarnings("unchecked")
     public List<Hackathon> queryHackathonsBetweenDates(Date startDate, Date endDate, String sortBy, Integer count) {
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Hackathon> criteria = builder.createQuery(Hackathon.class);
-        Root<Hackathon> hRoot = criteria.from(Hackathon.class);
+        
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Hackathon> query = cb.createQuery(Hackathon.class);
+        Root<Hackathon> HackathonRoot = query.from(Hackathon.class);
+        query.select(HackathonRoot);
+
+        Predicate predicate = null;
+        Path<Date> startDatePath = HackathonRoot.<Date>get("startDate");
         if (startDate != null) {
-            criteria.where(builder.and(builder.greaterThanOrEqualTo(hRoot.get(Hackathon_.startDate), startDate)));
-            if (sortBy == null || !sortBy.equals("distance")) {
-                criteria.orderBy(builder.asc(hRoot.get(Hackathon_.startDate)));
-            }
+            predicate = cb.greaterThanOrEqualTo(startDatePath, startDate);
         }
         if (endDate != null) {
-            criteria.where(builder.and(builder.lessThanOrEqualTo(hRoot.get(Hackathon_.endDate), startDate)));
+            Predicate additionalPredicate = cb.lessThanOrEqualTo(HackathonRoot.<Date>get("endDate"), startDate);
+            if (predicate == null) {
+                predicate = additionalPredicate;
+            } else {
+                predicate = cb.and(predicate, additionalPredicate);
+            }
         }
-        Query query = entityManager.createQuery(criteria);
-        if (count != null) {
-            query.setMaxResults(count);
+        query.where(predicate);
+
+        if (sortBy == null || !sortBy.equals("distance")) {
+            query.orderBy(cb.asc(startDatePath));
         }
-        return query.getResultList();
+        
+        return entityManager.createQuery(query).setMaxResults(count).getResultList();
+
     }
 }

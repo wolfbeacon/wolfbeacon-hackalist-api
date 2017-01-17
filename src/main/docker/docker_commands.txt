@@ -1,8 +1,11 @@
 * Packaging and Builder Docker Image with Maven:
     `sudo mvn package docker:build` (optional: -DpushImage)
 
-* Running Docker Image with host MySQL Instance
-    `sudo docker run -p 8080:8080 -t --net=host wolfbeacon/wolfbeacon-server`
+* LOCAL: Running Docker Image with local host MySQL Instance
+    `sudo docker run -p 8080:8080 -t --net=host wolfbeacon1/wolfbeacon-server`
+
+* PROD: Running Docker Image with prod MySQL instance(dont?)
+    `sudo docker run -p 8080:8080 wolfbeacon1/wolfbeacon-server`
 
 * Show Docker process
     `sudo docker ps`
