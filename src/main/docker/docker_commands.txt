@@ -1,0 +1,11 @@
+* Packaging and Builder Docker Image with Maven:
+    `mvn package docker:build` (optional: -DpushImage)
+
+* Running Docker Image with host MySQL Instance
+    `docker run -p 8080:8080 -t --net=host wolfbeacon/wolfbeacon-server`
+
+* Show Docker process
+    `sudo docker ps`
+
+* Kill Docker process
+    `docker stop <id>`
