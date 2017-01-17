@@ -55,7 +55,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <docker.image.prefix>wolfbeacon</docker.image.prefix>
+    <docker.image.prefix>wolfbeacon1</docker.image.prefix>
   </properties>
 
   <dependencies>
@@ -209,6 +209,7 @@
         <artifactId>docker-maven-plugin</artifactId>
         <version>0.4.11</version>
         <configuration>
+          <serverId>docker-hub</serverId>
           <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
           <dockerDirectory>src/main/docker</dockerDirectory>
           <resources>

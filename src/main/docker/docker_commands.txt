@@ -1,11 +1,23 @@
 * Packaging and Builder Docker Image with Maven:
-    `mvn package docker:build` (optional: -DpushImage)
+    `sudo mvn package docker:build` (optional: -DpushImage)
 
 * Running Docker Image with host MySQL Instance
-    `docker run -p 8080:8080 -t --net=host wolfbeacon/wolfbeacon-server`
+    `sudo docker run -p 8080:8080 -t --net=host wolfbeacon/wolfbeacon-server`
 
 * Show Docker process
     `sudo docker ps`
 
 * Kill Docker process
     `docker stop <id>`
+
+* To push to a private Docker image registry that requires authentication, you can put your credentials in your Maven's global settings.xml file as part of the <servers></servers> block
+    -Location: /usr/share/maven/conf/settings.xml
+    -Code:
+    <server>
+        <id>docker-hub</id>
+        <username>foo</username>
+        <password>secret-password</password>
+        <configuration>
+            <email>foo@foo.bar</email>
+        </configuration>
+    </server>
