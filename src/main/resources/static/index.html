@@ -1,0 +1,26 @@
+<head>
+
+    <!-- Auth0 lock script -->
+    <script src="https://cdn.auth0.com/js/lock/10.9.1/lock.min.js"></script>
+
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+
+
+<button type="submit" id="btn-login">Sign In</button>
+
+<script>
+    var lock = new Auth0Lock('cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A', 'wolf-beacon.auth0.com');
+
+    var btn_login = document.getElementById('btn-login');
+
+    btn_login.addEventListener('click', function() {
+        lock.show();
+    });
+
+    lock.on("authenticated", function(authResult) {
+        localStorage.setItem('id_token', authResult.idToken);
+    });
+
+</script>
