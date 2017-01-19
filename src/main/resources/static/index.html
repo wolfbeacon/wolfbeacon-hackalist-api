@@ -1,26 +1,172 @@
 <head>
-
     <!-- Auth0 lock script -->
     <script src="https://cdn.auth0.com/js/lock/10.9.1/lock.min.js"></script>
-
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Setting the right viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 </head>
 
+<h1>WolfBeacon API Auth0 Login </h1>
+<button data-label="Login" type="submit" id="btn-login">Login</button>
+<br><br><br>
+<div id="clientid-div">
+    <h3>Auth0 Client ID (Public)</h3>
+    <span class="clientid-span" style="text-align: center; word-wrap: break-word;">
+        cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A
+    </span>
+    <p>
+        <button class="clientid-copy-btn">Copy ClientId</button>
+    </p>
+</div>
+<br>
+<div hidden id="token-div">
+    <h3>Auth0 Token ID</h3>
+    <span class="token-span" id="token-span" style="text-align: center; word-wrap: break-word;">
+    </span>
+    <p>
+        <button class="token-copy-btn">Copy Token</button>
+    </p>
+</div>
 
-<button type="submit" id="btn-login">Sign In</button>
+<!--<button type="submit" id="btn-login">Login</button>-->
 
 <script>
     var lock = new Auth0Lock('cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A', 'wolf-beacon.auth0.com');
 
     var btn_login = document.getElementById('btn-login');
 
-    btn_login.addEventListener('click', function() {
+    btn_login.addEventListener('click', function () {
         lock.show();
     });
 
-    lock.on("authenticated", function(authResult) {
+    lock.on("authenticated", function (authResult) {
         localStorage.setItem('id_token', authResult.idToken);
+        var token = localStorage.getItem('id_token');
+        $('#token-div').show();
+        $('#token-span').text(token);
     });
 
 </script>
+
+<script>
+    var copyEmailBtn = document.querySelector('.token-copy-btn');
+    copyEmailBtn.addEventListener('click', function (event) {
+        // Select the email link anchor text
+        var emailLink = document.querySelector('.token-span');
+        var range = document.createRange();
+        range.selectNode(emailLink);
+        window.getSelection().addRange(range);
+        try {
+            // Now that we've selected the anchor text, execute the copy command
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy email command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        // Remove the selections - NOTE: Should use
+        // removeRange(range) when it is supported
+        window.getSelection().removeAllRanges();
+    });
+</script>
+
+
+<script>
+    var copyEmailBtn = document.querySelector('.clientid-copy-btn');
+    copyEmailBtn.addEventListener('click', function (event) {
+        // Select the email link anchor text
+        var emailLink = document.querySelector('.clientid-span');
+        var range = document.createRange();
+        range.selectNode(emailLink);
+        window.getSelection().addRange(range);
+        try {
+            // Now that we've selected the anchor text, execute the copy command
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy email command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        // Remove the selections - NOTE: Should use
+        // removeRange(range) when it is supported
+        window.getSelection().removeAllRanges();
+    });
+</script>
+
+<style>
+
+
+    html, body {
+        padding: 0;
+        margin: 0;
+        background: #dbdbdb;
+        text-align: center;
+    }
+
+    body {
+        padding-top: 4em;
+    }
+
+    h1 {
+        margin-bottom: 3rem;
+        font-family: sans-serif;
+        color: #0C374D;
+    }
+
+    #btn-login {
+        position: relative;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0);
+        background: transparent;
+        border-radius: .25rem;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+    }
+
+    #btn-login,
+    #btn-login:after,
+    #btn-login:before {
+        padding: .6875rem 2rem;
+        -webkit-transition: -webkit-transform 0.75s, background-color .125s;
+        -moz-transition: -moz-transform 0.75s, background-color .125s;
+        -ms-transition: -ms-transform 0.75s, background-color .125s;
+        transition: transform 0.75s, background-color .125s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    #btn-login:after,
+    #btn-login:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: .25rem;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+    }
+
+    #btn-login:before {
+        z-index: 2;
+        color: #fff;
+        background-color: #3e87ec;
+        content: attr(data-label);
+    }
+
+    #btn-login:active:before {
+        background-color: #3571c8;
+    }
+
+</style>
