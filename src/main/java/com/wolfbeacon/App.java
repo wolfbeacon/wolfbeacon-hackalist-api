@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@ComponentScan({"com.wolfbeacon"})
+@ComponentScan(basePackages = {"com.wolfbeacon", "com.auth0.spring.security.api"})
 @EnableAutoConfiguration
 @PropertySources({
         @PropertySource("classpath:application.properties"),
