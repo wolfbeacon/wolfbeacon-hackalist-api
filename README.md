@@ -4,7 +4,7 @@ The Java/Spring-Boot/MySQL Backend & API powering [WolfBeacon](http://wolfbeacon
 
 ##Using the API
 
-##### An [Auth0](https://auth0.com) JWT Authentication Token ID is required, with the Client ID set as `cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A`. You can generate one for testing directly at [api.wolfbeacon.com](api.wolfbeacon.com)
+##### An [Auth0](https://auth0.com) JWT Authentication Token ID is required, with the Client ID set as `cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A`. You can generate one at [api.wolfbeacon.com](api.wolfbeacon.com)
 
 ###Hackathon Endpoint
 `/v1/hackathon/list`
@@ -76,7 +76,7 @@ The Java/Spring-Boot/MySQL Backend & API powering [WolfBeacon](http://wolfbeacon
 
 * Include in Maven Plugin (already included)
 ```
-  <!-- Docker -->
+<!-- Maven Docker Plugin-->
 <plugin>
   <groupId>com.spotify</groupId>
   <artifactId>docker-maven-plugin</artifactId>
