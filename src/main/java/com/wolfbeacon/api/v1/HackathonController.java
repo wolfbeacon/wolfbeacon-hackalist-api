@@ -26,7 +26,7 @@ public class HackathonController {
     @Autowired
     HackalistAPI hackalistAPI;
 
-    @RequestMapping("/api/v1/hackathon/list")
+    @RequestMapping("/v1/hackathon/list")
     public
     @ResponseBody
     List<Hackathon> getHackathons(HttpServletRequest request, HttpServletResponse response,
