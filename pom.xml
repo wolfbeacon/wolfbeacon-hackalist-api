@@ -216,7 +216,7 @@
         <configuration>
           <serverId>docker-hub</serverId>
           <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-          <dockerDirectory>src/main/docker</dockerDirectory>
+          <dockerDirectory>${basedir}</dockerDirectory>
           <resources>
             <resource>
               <targetPath>/</targetPath>
