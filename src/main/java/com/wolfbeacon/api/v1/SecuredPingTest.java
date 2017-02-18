@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class SecuredPingTest {
 
-    @RequestMapping("/api/v1/secured-ping")
+    @RequestMapping("/v1/secured-ping")
     public String getHackathons(HttpServletRequest request, HttpServletResponse response) {
         return "This is a secured endpoint. You have a valid token!";
     }
