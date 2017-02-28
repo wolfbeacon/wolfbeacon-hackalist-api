@@ -34,15 +34,15 @@
             </svg>
     </div>
   </div>
-  <div class="clientbefore" id="clientid-div">
-    <h3>Auth0 Client ID (Public)</h3>
-    <code class="clientid-span">
-        cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A
-    </code>
-    <p>
-        <button class="clientid-copy-btn">Copy Client Id</button>
-    </p>
-  </div>
+  <!--<div class="clientbefore" id="clientid-div">-->
+    <!--<h3>Auth0 Client ID (Public)</h3>-->
+    <!--<code class="clientid-span">-->
+        <!--cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A-->
+    <!--</code>-->
+    <!--<p>-->
+        <!--<button class="clientid-copy-btn">Copy Client Id</button>-->
+    <!--</p>-->
+  <!--</div>-->
 
   <br>
   <div hidden id="token-div">
@@ -69,11 +69,11 @@
 <script>
 var auth0 = new Auth0({
   domain: 'wolf-beacon.auth0.com',
-  clientID: 'cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A',
-  callbackURL: 'http://api.wolfbeacon.com/',
+  clientID: 'oBP2VKXBwru13se2dzweaq2fi8VSbUp1',
+  callbackURL: 'http://localhost:8080/',
   responseType: 'token'
 });
-var lock = new Auth0Lock('cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A', 'wolf-beacon.auth0.com', {
+var lock = new Auth0Lock('oBP2VKXBwru13se2dzweaq2fi8VSbUp1', 'wolf-beacon.auth0.com', {
     auth: {
       params: {
         scope: 'openid name'
