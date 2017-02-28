@@ -62,3 +62,5 @@ hs_err_pid*
 /src/main/resources/auth0.properties
 /target/
 /.idea
+/src/main/resources/application-local.properties
+/src/main/resources/application-prod.properties
