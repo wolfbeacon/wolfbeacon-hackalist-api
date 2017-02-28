@@ -13,177 +13,178 @@
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 </head>
 <div class="form">
-  <button style="display: none;" id="btn-logout" class="logout">Logout</button>
-  <h1 class="sign_in">WolfBeacon API</h1>
-  <h1 hidden class="welcome">Welcome!</h1>
-  <sub-header class="sign_in">Connect to get started</sub-header>
-  <sub-header style="display: none;" class="welcome">Your Token ID can be found below</sub-header>
-  <!--<button data-label="Login" type="submit" id="btn-login">Login</button>-->
-  <br>
-  <div class="social-btns">
-    <a style="background-color: #3b5998;" id="btn-facebook" class="btn  facebook"><span class="fa fa-facebook"></span>&nbsp;Sign in with Facebook</a>
-    <a style="background-color: #444;" id="btn-github" class="btn  github"><span class="fa fa-github"></span>&nbsp;Sign in with Github</a>
-    <a style="background-color: #dc4a38;"  id="btn-google" class="btn  google"><span class="fa fa-google"></span>&nbsp;Sign in with Google</a>
+    <button style="display: none;" id="btn-logout" class="logout">Logout</button>
+    <h1 class="sign_in">WolfBeacon API</h1>
+    <h1 hidden class="welcome">Welcome!</h1>
+    <sub-header class="sign_in">Connect to get started</sub-header>
+    <sub-header style="display: none;" class="welcome">Your Token ID can be found below</sub-header>
+    <!--<button data-label="Login" type="submit" id="btn-login">Login</button>-->
+    <br>
+    <div class="social-btns">
+        <a style="background-color: #3b5998;" id="btn-facebook" class="btn  facebook"><span class="fa fa-facebook"></span>&nbsp;Sign in with Facebook</a>
+        <a style="background-color: #444;" id="btn-github" class="btn  github"><span class="fa fa-github"></span>&nbsp;Sign in with Github</a>
+        <a style="background-color: #dc4a38;"  id="btn-google" class="btn  google"><span class="fa fa-google"></span>&nbsp;Sign in with Google</a>
 
-    <!--Loader-->
-    <div style="display: none;" class="loader--style2" title="1">
+        <!--Loader-->
+        <div style="display: none;" class="loader--style2" title="1">
             <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
                 <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
                     <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
                 </path>
             </svg>
+        </div>
     </div>
-  </div>
-  <!--<div class="clientbefore" id="clientid-div">-->
-    <!--<h3>Auth0 Client ID (Public)</h3>-->
-    <!--<code class="clientid-span">-->
-        <!--cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A-->
-    <!--</code>-->
-    <!--<p>-->
-        <!--<button class="clientid-copy-btn">Copy Client Id</button>-->
-    <!--</p>-->
-  <!--</div>-->
+    <!--<div class="clientbefore" id="clientid-div">-->
+        <!--<h3>Auth0 Client ID (Public)</h3>-->
+        <!--<code class="clientid-span">-->
+            <!--oBP2VKXBwru13se2dzweaq2fi8VSbUp1-->
+        <!--</code>-->
+        <!--<p>-->
+            <!--<button class="clientid-copy-btn">Copy Client Id</button>-->
+        <!--</p>-->
+    <!--</div>-->
 
-  <br>
-  <div hidden id="token-div">
-    <h3>Auth0 Token ID</h3>
-    <div class="token">
-      <code id="token-span" style="text-align: center; word-wrap: break-word;">
-      </code>
+    <br>
+    <div hidden id="token-div">
+        <h3>Auth0 Token ID</h3>
+        <div class="token">
+            <code id="token-span" style="text-align: center; word-wrap: break-word;">
+            </code>
+        </div>
+        <p>
+            <button class="token-copy-btn">Copy Token</button>
+        </p>
     </div>
-    <p>
-        <button class="token-copy-btn">Copy Token</button>
-    </p>
-  </div>
-  <div hidden class="clientafter" hidden id="clientid-div">
-    <h3>Auth0 Client ID (Public)</h3>
-    <code class="clientid-span">
-        cMr82TS37R0DPqLSnC0gCWn2vV3qHK7A
-    </code>
-    <p>
-        <button class="clientid-copy-btn">Copy Client Id</button>
-    </p>
-  </div>
+    <div hidden class="clientafter" hidden id="clientid-div">
+        <h3>Auth0 Client ID (Public)</h3>
+        <code class="clientid-span">
+            oBP2VKXBwru13se2dzweaq2fi8VSbUp1
+        </code>
+        <p>
+            <button class="clientid-copy-btn">Copy Client Id</button>
+        </p>
+    </div>
 </div>
 <!--<button type="submit" id="btn-login">Login</button>-->
 <script>
-var auth0 = new Auth0({
-  domain: 'wolf-beacon.auth0.com',
-  clientID: 'oBP2VKXBwru13se2dzweaq2fi8VSbUp1',
-  callbackURL: 'http://localhost:8080/',
-  responseType: 'token'
-});
-var lock = new Auth0Lock('oBP2VKXBwru13se2dzweaq2fi8VSbUp1', 'wolf-beacon.auth0.com', {
-    auth: {
-      params: {
-        scope: 'openid name'
-      }
-    }
-});
+    var auth0 = new Auth0({
+        domain: 'wolf-beacon.auth0.com',
+        clientID: 'oBP2VKXBwru13se2dzweaq2fi8VSbUp1',
+        callbackURL: 'http://localhost:8080/',
+        responseType: 'token'
+    });
+    var lock = new Auth0Lock('oBP2VKXBwru13se2dzweaq2fi8VSbUp1', 'wolf-beacon.auth0.com', {
+        auth: {
+            params: {
+                scope: 'openid name',
+                audience: 'http://api.wolfbeacon.com/'
+            }
+        }
+    });
 
-var btn_google = document.getElementById('btn-google'); 
-var btn_facebook = document.getElementById('btn-facebook');  
-var btn_github = document.getElementById('btn-github');
-var btn_logout = document.getElementById('btn-logout');
-//Google Login
-btn_google.addEventListener('click', function (e) {
-  e.preventDefault();
-  $('.loader--style2').show();
-  
-  auth0.login({
-    connection: 'google-oauth2'
+    var btn_google = document.getElementById('btn-google');
+    var btn_facebook = document.getElementById('btn-facebook');
+    var btn_github = document.getElementById('btn-github');
+    var btn_logout = document.getElementById('btn-logout');
+    //Google Login
+    btn_google.addEventListener('click', function (e) {
+        e.preventDefault();
+        $('.loader--style2').show();
 
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-});
-//Facebook Login
-btn_facebook.addEventListener('click', function (e) {
-  e.preventDefault();
-  $('.loader--style2').show();
+        auth0.login({
+            connection: 'google-oauth2'
 
-  auth0.login({
-    connection: 'facebook'
+        }, function(err) {
+            if (err) alert("something went wrong: " + err.message);
+        });
+    });
+    //Facebook Login
+    btn_facebook.addEventListener('click', function (e) {
+        e.preventDefault();
+        $('.loader--style2').show();
 
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-});
-//Github Login
-btn_github.addEventListener('click', function (e) {
-  e.preventDefault();
-  $('.loader--style2').show();
+        auth0.login({
+            connection: 'facebook'
 
-  auth0.login({
-    connection: 'github'
+        }, function(err) {
+            if (err) alert("something went wrong: " + err.message);
+        });
+    });
+    //Github Login
+    btn_github.addEventListener('click', function (e) {
+        e.preventDefault();
+        $('.loader--style2').show();
 
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-});
-  
-lock.on("authenticated", function (authResult) {
-  localStorage.setItem('id_token', authResult.idToken);
+        auth0.login({
+            connection: 'github'
 
-  var token = localStorage.getItem('id_token');
- 
-  $('#token-div').show();
-  $('#token-span').text(token);
-  $('.social-btns').hide();
-  $('.sign_in').hide();
-  $('.clientbefore').hide();
-  $('.clientafter').show();
-  $('.welcome').show();
-  $('.loader--style2').hide();
-  $('#btn-logout').show();   
+        }, function(err) {
+            if (err) alert("something went wrong: " + err.message);
+        });
+    });
 
-});
-//Logout Button
-btn_logout.addEventListener('click', function (e) {
-  e.preventDefault();
-  localStorage.removeItem('id_token');
-  window.location.href = 'http://localhost:3002/';
-});
+    lock.on("authenticated", function (authResult) {
+        localStorage.setItem('id_token', authResult.accessToken);
+
+        var token = localStorage.getItem('id_token');
+
+        $('#token-div').show();
+        $('#token-span').text(token);
+        $('.social-btns').hide();
+        $('.sign_in').hide();
+        $('.clientbefore').hide();
+        $('.clientafter').show();
+        $('.welcome').show();
+        $('.loader--style2').hide();
+        $('#btn-logout').show();
+
+    });
+    //Logout Button
+    btn_logout.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('id_token');
+        window.location.href = 'http://localhost:3002/';
+    });
 </script>
 <script>
-var copyEmailBtn = document.querySelector('.token-copy-btn');
-copyEmailBtn.addEventListener('click', function (event) {
-  // Select the email link anchor text
-  var emailLink = document.getElementById('token-span');
-  var range = document.createRange();
-  range.selectNode(emailLink);
-  window.getSelection().addRange(range);
-  try {
-    // Now that we've selected the anchor text, execute the copy command
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copy email command was ' + msg);
-  } catch (err) {
-      console.log('Oops, unable to copy');
-    }
-  // Remove the selections - NOTE: Should use
-  // removeRange(range) when it is supported
-  window.getSelection().removeAllRanges();
-});
+    var copyEmailBtn = document.querySelector('.token-copy-btn');
+    copyEmailBtn.addEventListener('click', function (event) {
+        // Select the email link anchor text
+        var emailLink = document.getElementById('token-span');
+        var range = document.createRange();
+        range.selectNode(emailLink);
+        window.getSelection().addRange(range);
+        try {
+            // Now that we've selected the anchor text, execute the copy command
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy email command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        // Remove the selections - NOTE: Should use
+        // removeRange(range) when it is supported
+        window.getSelection().removeAllRanges();
+    });
 </script>
 <script>
-var copyEmailBtn = document.querySelector('.clientid-copy-btn');
-copyEmailBtn.addEventListener('click', function (event) {
-  // Select the email link anchor text
-  var emailLink = document.querySelector('.clientid-span');
-  var range = document.createRange();
-  range.selectNode(emailLink);
-  window.getSelection().addRange(range);
-  try {
-    // Now that we've selected the anchor text, execute the copy command
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copy email command was ' + msg);
-  } catch (err) {
-      console.log('Oops, unable to copy');
-    }
-  // Remove the selections - NOTE: Should use
-  // removeRange(range) when it is supported
-  window.getSelection().removeAllRanges();
-});
+    var copyEmailBtn = document.querySelector('.clientid-copy-btn');
+    copyEmailBtn.addEventListener('click', function (event) {
+        // Select the email link anchor text
+        var emailLink = document.querySelector('.clientid-span');
+        var range = document.createRange();
+        range.selectNode(emailLink);
+        window.getSelection().addRange(range);
+        try {
+            // Now that we've selected the anchor text, execute the copy command
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copy email command was ' + msg);
+        } catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        // Remove the selections - NOTE: Should use
+        // removeRange(range) when it is supported
+        window.getSelection().removeAllRanges();
+    });
 </script>
