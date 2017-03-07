@@ -33,6 +33,6 @@ public class HSSecurityConfig extends WebSecurityConfigurerAdapter {
         JwtWebSecurityConfigurer.forHS256(audience, issuer, secret.getBytes())
                 .configure(http)
                 .authorizeRequests()
-                .antMatchers("/v1/**").fullyAuthenticated();
+                .antMatchers("/v1/secured/**").fullyAuthenticated();
     }
 }

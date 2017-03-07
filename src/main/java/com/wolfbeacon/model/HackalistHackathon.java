@@ -11,14 +11,14 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "hackalist_hackathons")
-public class Hackathon {
+@Table(name = "hackalist_hackathon")
+public class HackalistHackathon {
 
-    public Hackathon() {
+    public HackalistHackathon() {
 
     }
 
-    public Hackathon(Long id, String title, String eventLink, Date startDate, Date endDate, Date lastUpdatedDate, Integer year, String location, String host, Integer length, String size, Boolean travel, Boolean prize, Boolean highSchoolers, String cost, String facebookLink, String twitterLink, String googlePlusLink, String imageLink, Double latitude, Double longitude, String notes) {
+    public HackalistHackathon(Long id, String title, String eventLink, Date startDate, Date endDate, Date lastUpdatedDate, Integer year, String location, String host, Integer length, String size, Boolean travel, Boolean prize, Boolean highSchoolers, String cost, String facebookLink, String twitterLink, String googlePlusLink, String imageLink, Double latitude, Double longitude, String notes) {
         this.id = id;
         this.title = title;
         this.eventLink = eventLink;
@@ -104,29 +104,29 @@ public class Hackathon {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Hackathon hackathon = (Hackathon) o;
-        return Objects.equals(id, hackathon.id) &&
-                Objects.equals(title, hackathon.title) &&
-                Objects.equals(eventLink, hackathon.eventLink) &&
-                Objects.equals(startDate, hackathon.startDate) &&
-                Objects.equals(endDate, hackathon.endDate) &&
-                Objects.equals(lastUpdatedDate, hackathon.lastUpdatedDate) &&
-                Objects.equals(year, hackathon.year) &&
-                Objects.equals(location, hackathon.location) &&
-                Objects.equals(host, hackathon.host) &&
-                Objects.equals(length, hackathon.length) &&
-                Objects.equals(size, hackathon.size) &&
-                Objects.equals(travel, hackathon.travel) &&
-                Objects.equals(prize, hackathon.prize) &&
-                Objects.equals(highSchoolers, hackathon.highSchoolers) &&
-                Objects.equals(cost, hackathon.cost) &&
-                Objects.equals(facebookLink, hackathon.facebookLink) &&
-                Objects.equals(twitterLink, hackathon.twitterLink) &&
-                Objects.equals(googlePlusLink, hackathon.googlePlusLink) &&
-                Objects.equals(imageLink, hackathon.imageLink) &&
-                Objects.equals(latitude, hackathon.latitude) &&
-                Objects.equals(longitude, hackathon.longitude) &&
-                Objects.equals(notes, hackathon.notes);
+        HackalistHackathon hackalistHackathon = (HackalistHackathon) o;
+        return Objects.equals(id, hackalistHackathon.id) &&
+                Objects.equals(title, hackalistHackathon.title) &&
+                Objects.equals(eventLink, hackalistHackathon.eventLink) &&
+                Objects.equals(startDate, hackalistHackathon.startDate) &&
+                Objects.equals(endDate, hackalistHackathon.endDate) &&
+                Objects.equals(lastUpdatedDate, hackalistHackathon.lastUpdatedDate) &&
+                Objects.equals(year, hackalistHackathon.year) &&
+                Objects.equals(location, hackalistHackathon.location) &&
+                Objects.equals(host, hackalistHackathon.host) &&
+                Objects.equals(length, hackalistHackathon.length) &&
+                Objects.equals(size, hackalistHackathon.size) &&
+                Objects.equals(travel, hackalistHackathon.travel) &&
+                Objects.equals(prize, hackalistHackathon.prize) &&
+                Objects.equals(highSchoolers, hackalistHackathon.highSchoolers) &&
+                Objects.equals(cost, hackalistHackathon.cost) &&
+                Objects.equals(facebookLink, hackalistHackathon.facebookLink) &&
+                Objects.equals(twitterLink, hackalistHackathon.twitterLink) &&
+                Objects.equals(googlePlusLink, hackalistHackathon.googlePlusLink) &&
+                Objects.equals(imageLink, hackalistHackathon.imageLink) &&
+                Objects.equals(latitude, hackalistHackathon.latitude) &&
+                Objects.equals(longitude, hackalistHackathon.longitude) &&
+                Objects.equals(notes, hackalistHackathon.notes);
     }
 
     @Override

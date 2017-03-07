@@ -1,6 +1,6 @@
 package com.wolfbeacon.util;
 
-import com.wolfbeacon.model.Hackathon;
+import com.wolfbeacon.model.HackalistHackathon;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * 12/11/16
  */
 
-public class CoordinateComparator implements Comparator<Hackathon> {
+public class CoordinateComparator implements Comparator<HackalistHackathon> {
 
     private Double lat1, lon1;
     private Map<Long, Double> memoDistances;
@@ -23,7 +23,7 @@ public class CoordinateComparator implements Comparator<Hackathon> {
     }
 
     @Override
-    public int compare(Hackathon h1, Hackathon h2) {
+    public int compare(HackalistHackathon h1, HackalistHackathon h2) {
         if (!memoDistances.containsKey(h1.getId())) {
             memoDistances.put(h1.getId(), distance(h1.getLatitude(), h1.getLongitude()));
         }

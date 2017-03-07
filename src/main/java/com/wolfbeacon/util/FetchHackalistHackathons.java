@@ -4,8 +4,8 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
-import com.wolfbeacon.dao.HackathonDao;
-import com.wolfbeacon.model.Hackathon;
+import com.wolfbeacon.dao.HackalistHackathonDao;
+import com.wolfbeacon.model.HackalistHackathon;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -16,9 +16,9 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
@@ -31,13 +31,12 @@ import java.util.Date;
 
 
 @Profile("prod")
-@Component
 @Transactional
 @EnableScheduling
-public class HackalistAPI {
+public class FetchHackalistHackathons {
 
     @Autowired
-    private HackathonDao hackathonDao;
+    private HackalistHackathonDao hackalistHackathonDao;
 
     @Value("${google_server_api_key}")
     private String GOOGLE_API_SERVER_KEY;
@@ -51,7 +50,7 @@ public class HackalistAPI {
      * Update every 6 hours, delay in milliseconds
      * Sweep the API endpoints from the start and update DB
      */
-
+    @Async
     @Scheduled(initialDelay = 1000, fixedDelay = 21600000)
     public void updateHackalistHackathonData() {
         //Default Start dates of the hackalist API
@@ -118,10 +117,10 @@ public class HackalistAPI {
                     Long id = generateIDForHackathon(currHackathon, title, year);
 
                     //Create Object
-                    Hackathon thisHackathon = new Hackathon(id, title, eventLink, startDate, endDate, lastUpdatedTime, year, location, host, length, size, travel, prize, highSchoolers, cost, facebookLink, twitterLink, googlePlusLink, imageLink, latitude, longitude, notes);
+                    HackalistHackathon thisHackalistHackathon = new HackalistHackathon(id, title, eventLink, startDate, endDate, lastUpdatedTime, year, location, host, length, size, travel, prize, highSchoolers, cost, facebookLink, twitterLink, googlePlusLink, imageLink, latitude, longitude, notes);
 
                     //UPDATE DB
-                    hackathonDao.save(thisHackathon);
+                    hackalistHackathonDao.save(thisHackalistHackathon);
                 }
                 currMonth++;
                 if (currMonth == 13) {
