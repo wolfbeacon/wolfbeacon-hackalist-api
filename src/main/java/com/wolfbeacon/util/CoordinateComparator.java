@@ -6,11 +6,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Shreyans Sheth [bholagabbar | http://shreyans-sheth.me]
- * 12/11/16
- */
-
 public class CoordinateComparator implements Comparator<HackalistHackathon> {
 
     private Double lat1, lon1;
@@ -33,10 +28,10 @@ public class CoordinateComparator implements Comparator<HackalistHackathon> {
         return Double.compare(memoDistances.get(h1.getId()), memoDistances.get(h2.getId()));
     }
 
-    //http://www.geodatasource.com/
+    //Refer to http://www.geodatasource.com/
     private Double distance(Double lat2, Double lon2) {
         if (lat2 == null || lon2 == null) {
-            return (double)Integer.MAX_VALUE;
+            return (double) Integer.MAX_VALUE;
         }
         Double theta = lon1 - lon2;
         Double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));

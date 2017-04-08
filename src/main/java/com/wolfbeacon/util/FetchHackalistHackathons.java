@@ -4,8 +4,8 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
-import com.wolfbeacon.dao.HackalistHackathonDao;
 import com.wolfbeacon.model.HackalistHackathon;
+import com.wolfbeacon.service.HackalistHackathonService;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -15,10 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
@@ -29,14 +29,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
-@Profile("prod")
-@Transactional
+@Component
 @EnableScheduling
+@Transactional
 public class FetchHackalistHackathons {
 
     @Autowired
-    private HackalistHackathonDao hackalistHackathonDao;
+    private HackalistHackathonService hackalistHackathonService;
 
     @Value("${google_server_api_key}")
     private String GOOGLE_API_SERVER_KEY;
@@ -120,7 +119,7 @@ public class FetchHackalistHackathons {
                     HackalistHackathon thisHackalistHackathon = new HackalistHackathon(id, title, eventLink, startDate, endDate, lastUpdatedTime, year, location, host, length, size, travel, prize, highSchoolers, cost, facebookLink, twitterLink, googlePlusLink, imageLink, latitude, longitude, notes);
 
                     //UPDATE DB
-                    hackalistHackathonDao.save(thisHackalistHackathon);
+                    hackalistHackathonService.saveHackathon(thisHackalistHackathon);
                 }
                 currMonth++;
                 if (currMonth == 13) {
@@ -277,6 +276,9 @@ public class FetchHackalistHackathons {
         String notes = null;
         if (currHackathon.has("notes")) {
             notes = currHackathon.getString("notes");
+            if (notes.length() > 255) {
+                notes = notes.substring(255);
+            }
         }
         return notes;
     }

@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Blob;
 import java.util.Date;
 import java.util.Objects;
 
@@ -40,11 +39,7 @@ public class HackalistHackathon {
         this.imageLink = imageLink;
         this.latitude = latitude;
         this.longitude = longitude;
-        try {
-            this.notes.setBytes(1, notes.getBytes());
-        } catch (Exception e) {
-
-        }
+        this.notes = notes;
     }
 
     @Id
@@ -93,7 +88,7 @@ public class HackalistHackathon {
     @Column(name = "longitude")
     private Double longitude;
     @Column(name = "notes", length = 1000)
-    private Blob notes;
+    private String notes;
 
 
     @Override
@@ -302,15 +297,11 @@ public class HackalistHackathon {
         this.longitude = longitude;
     }
 
-    public Blob getNotes() {
+    public String getNotes() {
         return notes;
     }
 
     public void setNotes(String notes) {
-        try {
-            this.notes.setBytes(1, notes.getBytes());
-        } catch (Exception e) {
-
-        }
+        this.notes = notes;
     }
 }

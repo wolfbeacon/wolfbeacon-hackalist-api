@@ -8,5 +8,6 @@ import java.util.List;
 
 @Transactional
 public interface HackalistHackathonService {
-    List<HackalistHackathon> getHackathonsBetweenDate(Date startDate, Date endDate, String sortBy, Integer count);
+    List<HackalistHackathon> getHackathonsBetweenDate(Date startDate, Date endDate, String sortBy, Integer count, Double latitude, Double longitude);
+    void saveHackathon(HackalistHackathon hackalistHackathon);
 }
