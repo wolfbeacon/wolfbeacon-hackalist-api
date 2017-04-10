@@ -55,7 +55,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <docker.image.prefix>wolfbeacon1</docker.image.prefix>
+        <start-class>com.wolfbeacon.App</start-class>
     </properties>
 
     <dependencies>
