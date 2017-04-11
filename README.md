@@ -5,7 +5,7 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 ## Using the API
 
 ### Endpoint
-`/api/hackalist-hackathon/list`
+`/hackalist-hackathons`
 
 *Updated every 6 hours from [Hackalist](www.hackalist.org)*
 
@@ -21,7 +21,7 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 
 ##### Example Query: 
 
-> curl -X GET "http://api.wolfbeacon.com/api/hackalist-hackathon/list?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+> curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
 ##### Result:

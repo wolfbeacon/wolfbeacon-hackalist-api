@@ -34,7 +34,7 @@ public class HackalistHackathonController {
         return hackalistHackathonService.getHackathonsBetweenDate(parsedStartDate, parsedEndDate, sortBy, count, latitude, longitude);
     }
 
-    @RequestMapping("/hackalist-hackathons/ping")
+    @RequestMapping("/ping/wolfbeacon-hackalist-api")
     public String ping(HttpServletRequest request, HttpServletResponse response) {
         return "Ping successful";
     }
