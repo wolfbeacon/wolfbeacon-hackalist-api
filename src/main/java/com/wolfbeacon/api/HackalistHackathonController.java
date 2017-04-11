@@ -20,7 +20,7 @@ public class HackalistHackathonController {
     @Autowired
     HackalistHackathonService hackalistHackathonService;
 
-    @RequestMapping("/api/hackalist-hackathon/list")
+    @RequestMapping("/hackalist-hackathons")
     public List<HackalistHackathon> getHackalistHackathons(HttpServletRequest request, HttpServletResponse response,
                                                            @RequestParam(value = "start-date") String startDate,
                                                            @RequestParam(value = "end-date") String endDate,
@@ -34,7 +34,7 @@ public class HackalistHackathonController {
         return hackalistHackathonService.getHackathonsBetweenDate(parsedStartDate, parsedEndDate, sortBy, count, latitude, longitude);
     }
 
-    @RequestMapping("/ping")
+    @RequestMapping("/hackalist-hackathons/ping")
     public String ping(HttpServletRequest request, HttpServletResponse response) {
         return "Ping successful";
     }
