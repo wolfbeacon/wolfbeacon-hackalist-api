@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>wolfbeacon-hackalist-api</name>
-    <description>WolfBeacon API for Hackalist.org</description>
+    <description>API built around Hacklist Data showing all hackathons around the planet</description>
 
     <repositories>
         <repository>

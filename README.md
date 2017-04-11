@@ -69,10 +69,10 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 
 
 ## Running/Deploying with [Docker](https://docs.docker.com/engine/installation/)
-
-* `docker build -t wolfbeacon-hackalist-api`
-* `docker run wolfbeacon-hackalist-api`
+* `sudo docker service start`
+* `sudo docker build -t wolfbeacon-hackalist-api .`
+* `sudo docker run -p 8080:80 wolfbeacon-hackalist-api`
 
 ## [Cycle](https://cycle.io) Settings
 
-* Create Image -> Go to `Environment` (create one if not present) -> New Container -> set `JAVA_OPTS` as `-Xms512m -Xmx1024m` under CONFIG in Environment Image -> Start
+* Create Image -> Go to `Environment` (create one if not present) -> New Container -> set `JAVA_OPTS` as `-Xms1024m -Xmx1024m` under CONFIG in Environment Image -> Start
