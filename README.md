@@ -56,6 +56,7 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 }
 ```
 
+##### Ping Endpoint returning '*ping successful*': `/ping/wolfbeacon-hackalist-api` 
 
 ## Local Setup:
 
