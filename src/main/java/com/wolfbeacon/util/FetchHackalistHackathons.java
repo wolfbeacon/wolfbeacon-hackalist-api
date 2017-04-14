@@ -26,6 +26,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -33,6 +34,8 @@ import java.util.Date;
 @EnableScheduling
 @Transactional
 public class FetchHackalistHackathons {
+
+    private static boolean haveStoredOlderMonths = false;
 
     @Autowired
     private HackalistHackathonService hackalistHackathonService;
@@ -46,17 +49,22 @@ public class FetchHackalistHackathons {
 
 
     /**
-     * Update every 6 hours, delay in milliseconds
+     * Update every 9 hours, delay in milliseconds
      * Sweep the API endpoints from the start and update DB
      */
     @Async
-    @Scheduled(initialDelay = 1000, fixedDelay = 21600000)
+    @Scheduled(initialDelay = 1000, fixedDelay = 43200000)
     public void updateHackalistHackathonData() {
         //Default Start dates of the hackalist API
-        int currYear = 2014;
-        int currMonth = 8;
+        int currYear = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getYear();
+        int currMonth = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue();
+        // if previous months data stored, refresh only current month
+        if (!haveStoredOlderMonths) {
+            currYear = 2014;
+            currMonth = 8;
+            haveStoredOlderMonths = true;
+        }
         boolean res = true;
-
         while (res) {
             try {
                 //Convert month name to month number
@@ -64,6 +72,7 @@ public class FetchHackalistHackathons {
 
                 //HTTP request to fetch JSON from Hackalist API
                 HttpGet request = new HttpGet(HACKALIST_API_ROUTE + Integer.toString(currYear) + "/" + monthNumber + ".json");
+                System.out.println(request);
                 CloseableHttpClient httpClient = HttpClients.createDefault();
                 HttpResponse response = httpClient.execute(request);
                 String entityContents = EntityUtils.toString(response.getEntity());
@@ -181,9 +190,9 @@ public class FetchHackalistHackathons {
 
 
     private Integer parseLength(JSONObject currHackathon) {
-        String lengthStr = currHackathon.getString("length");
         Integer length = null;
-        if (!lengthStr.equals("unknown")) {
+        if (currHackathon.has("length") && !currHackathon.getString("length").equals("unknown")) {
+            String lengthStr = currHackathon.getString("length");
             length = 0;
             try {
                 String lengthStrI = "";
@@ -209,28 +218,34 @@ public class FetchHackalistHackathons {
     }
 
     private Boolean parseHighSchoolers(JSONObject currHackathon) {
-        String highSchoolersStr = currHackathon.getString("highSchoolers");
         Boolean highSchoolers = null;
-        if (!highSchoolersStr.equals("unknown")) {
-            highSchoolers = highSchoolersStr.equals("yes");
+        if (currHackathon.has("highSchoolers")) {
+            String highSchoolersStr = currHackathon.getString("highSchoolers");
+            if (!highSchoolersStr.equals("unknown")) {
+                highSchoolers = highSchoolersStr.equals("yes");
+            }
         }
         return highSchoolers;
     }
 
     private Boolean parseTravel(JSONObject currHackathon) {
-        String travelStr = currHackathon.getString("travel");
         Boolean travel = null;
-        if (!travelStr.equals("unknown")) {
-            travel = travelStr.equals("yes");
+        if (currHackathon.has("travel")) {
+            String travelStr = currHackathon.getString("travel");
+            if (!travelStr.equals("unknown")) {
+                travel = travelStr.equals("yes");
+            }
         }
         return travel;
     }
 
     private Boolean parsePrize(JSONObject currHackathon) {
-        String prizeStr = currHackathon.getString("prize");
         Boolean prize = null;
-        if (!prizeStr.equals("unknown")) {
-            prize = prizeStr.equals("yes");
+        if (currHackathon.has("prize")) {
+            String prizeStr = currHackathon.getString("prize");
+            if (!prizeStr.equals("unknown")) {
+                prize = prizeStr.equals("yes");
+            }
         }
         return prize;
     }
