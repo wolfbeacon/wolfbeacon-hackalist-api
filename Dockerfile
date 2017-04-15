@@ -8,7 +8,6 @@ WORKDIR /code
 # Prepare by downloading dependencies
 ADD pom.xml /code/pom.xml  
 RUN ["mvn","dependency:resolve"]  
-RUN ["mvn","verify"]
 
 # Adding source, compile and package
 ADD src /code/src  
@@ -18,4 +17,4 @@ RUN ["mvn","package"]
 WORKDIR /code/target
 
 # Execute app
-CMD java -jar wolfbeacon-hackalist-api-1.0.jar
+CMD java -Xms1024m -Xmx1024m -jar wolfbeacon-hackalist-api-1.0.jar
