@@ -1,13 +1,14 @@
 # WolfBeacon Hackalist API
 
-An API built around [Hackalist](www.hackalist.org) data that lists all the Hackathons around you on the planet.
+An API built around [Hackalist.org](www.hackalist.org) data that lists all the Hackathons around you on the planet.
 
 ## Using the API
 
 ### Endpoint
 `/hackalist-hackathons`
 
-*Updated every 6 hours from [Hackalist](www.hackalist.org)*
+\* *Updated every 6 hours from Hackalist*
+\* *Data present from 2015 onwards*
 
 ##### Parameters Required:
 * `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*
@@ -19,7 +20,11 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
         OR
     2. `date` (*sort-by*): Sorts all the Hackathons in ascending order of start-date. Eg: *sort-by=date*
 
-##### Example Query: 
+##### Example Query 1 (By date):
+
+> curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
+
+##### Example Query 2 (By distance/coordinates): 
 
 > curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
@@ -64,7 +69,7 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 
 * `git clone https://github.com/wolfbeacon/wolfbeacon-server`
 * Rename `applications-test.properties` to `application.properties` and enter the configuration details as given
-* `mvn dependency:resolve && mvn verify && mvn package`
+* `mvn dependency:resolve && mvn clean package`
 * `cd target`
 * `java -jar wolfbeacon-hackalist-api-1.0.jar`
 
@@ -73,7 +78,3 @@ An API built around [Hackalist](www.hackalist.org) data that lists all the Hacka
 * `sudo docker service start`
 * `sudo docker build -t wolfbeacon-hackalist-api .`
 * `sudo docker run -p 8080:80 wolfbeacon-hackalist-api`
-
-## [Cycle](https://cycle.io) Settings
-
-* Create Image -> Go to `Environment` (create one if not present) -> New Container -> set `JAVA_OPTS` as `-Xms1024m -Xmx1024m` under CONFIG in Environment Image -> Start

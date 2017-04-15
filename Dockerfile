@@ -11,7 +11,7 @@ RUN ["mvn","dependency:resolve"]
 
 # Adding source, compile and package
 ADD src /code/src  
-RUN ["mvn","package"]
+RUN ["mvn","clean","package"]
 
 # Go to target folder
 WORKDIR /code/target
