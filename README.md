@@ -8,7 +8,7 @@ An API built around [Hackalist.org](www.hackalist.org) data that lists all the H
 `/hackalist-hackathons`
 
 \* *Updated every 6 hours from Hackalist*
-\* *Data present from 2015 onwards*
+\* *Data present from 2016 onwards*
 
 ##### Parameters Required:
 * `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*

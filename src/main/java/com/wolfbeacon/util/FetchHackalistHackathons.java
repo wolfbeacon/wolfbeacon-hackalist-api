@@ -60,7 +60,7 @@ public class FetchHackalistHackathons {
         int currMonth = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue();
         // if previous months data stored, refresh only current month
         if (!haveStoredOlderMonths) {
-            currYear = 2015;
+            currYear = 2016;
             currMonth = 1;
             haveStoredOlderMonths = true;
         }
