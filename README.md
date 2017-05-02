@@ -1,35 +1,36 @@
 # WolfBeacon Hackalist API
 
-An API built around [Hackalist.org](www.hackalist.org) data that lists all the Hackathons around you on the planet.
+An API built as a Microservice around [Hackalist.org](www.hackalist.org) data that lists all the Hackathons around you on the planet, sorted date wise or in radial distance on entering your location coordinates.
+
+Powered by Java using [Spring-Boot](https://projects.spring.io/spring-boot/), [Hibernate](http://hibernate.org/orm/) and [H2 Database Engine](http://www.h2database.com/html/main.html).
 
 ## Using the API
 
 ### Endpoint
 `/hackalist-hackathons`
+##### Updated every 12 hours from Hackalist with data present from 2016 onwards
 
-\* *Updated every 6 hours from Hackalist*
-\* *Data present from 2016 onwards*
 
-##### Parameters Required:
+#### Parameters Required:
 * `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*
 
 * `end-date` (*yyyy-MM-dd*): Returns all the hackathons *before* this date. Eg: *end-date=2015-12-10*
 
 * `sort-by`:
-    1. `distance` (*sort-by*, *latitude*, longitude*): Sorts all the Hackathons in ascending radial order from the coordinates entered. Eg: *sort-by=distance&latitude=19.1231&longitude=45.1231*
+    1. `distance` (*sort-by*, *latitude*, *longitude*): Sorts all the Hackathons in ascending radial order from the coordinates entered. Eg: *sort-by=distance&latitude=19.1231&longitude=45.1231*
         OR
     2. `date` (*sort-by*): Sorts all the Hackathons in ascending order of start-date. Eg: *sort-by=date*
 
-##### Example Query 1 (By date):
+#### Example Query 1 (By date):
 
 > curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
 
-##### Example Query 2 (By distance/coordinates): 
+#### Example Query 2 (By distance/coordinates): 
 
 > curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
-##### Result:
+#### Result:
 ```
 {
   ...
@@ -61,11 +62,12 @@ An API built around [Hackalist.org](www.hackalist.org) data that lists all the H
 }
 ```
 
-##### Ping Endpoint returning '*ping successful*': `/ping/wolfbeacon-hackalist-api` 
+#### Ping Endpoint
+`/ping/wolfbeacon-hackalist-api` returns *ping successful*.
 
 ## Local Setup:
 
-#### Dependencies: [Java 8](https://www.java.com/en/download/), [MySQL](http://dev.mysql.com/doc/refman/5.7/en/installing.html), [Maven](https://maven.apache.org/download.cgi).
+#### Dependencies: [Java 8](https://www.java.com/en/download/),  [Maven](https://maven.apache.org/download.cgi).
 
 * `git clone https://github.com/wolfbeacon/wolfbeacon-server`
 * Rename `applications-test.properties` to `application.properties` and enter the configuration details as given
