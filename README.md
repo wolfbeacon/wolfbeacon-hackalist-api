@@ -23,11 +23,11 @@ Powered by Java using [Spring-Boot](https://projects.spring.io/spring-boot/), [H
 
 #### Example Query 1 (By date):
 
-> curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
+> curl -X GET "https://wolfbeacon.com/api/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
 
 #### Example Query 2 (By distance/coordinates): 
 
-> curl -X GET "http://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+> curl -X GET "https://wolfbeacon.com/api/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
 #### Result:
