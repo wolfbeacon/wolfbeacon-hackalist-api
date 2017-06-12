@@ -3,6 +3,7 @@ package com.wolfbeacon.api;
 import com.wolfbeacon.model.HackalistHackathon;
 import com.wolfbeacon.service.HackalistHackathonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ public class HackalistHackathonController {
     @Autowired
     HackalistHackathonService hackalistHackathonService;
 
+    @CrossOrigin
     @RequestMapping("/hackalist-hackathons")
     public List<HackalistHackathon> getHackalistHackathons(HttpServletRequest request, HttpServletResponse response,
                                                            @RequestParam(value = "start-date") String startDate,
@@ -34,6 +36,7 @@ public class HackalistHackathonController {
         return hackalistHackathonService.getHackathonsBetweenDate(parsedStartDate, parsedEndDate, sortBy, count, latitude, longitude);
     }
 
+    @CrossOrigin
     @RequestMapping("/ping/wolfbeacon-hackalist-api")
     public String ping(HttpServletRequest request, HttpServletResponse response) {
         return "Ping successful";
