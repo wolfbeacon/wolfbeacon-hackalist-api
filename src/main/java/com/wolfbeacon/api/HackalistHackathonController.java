@@ -26,7 +26,7 @@ import java.util.List;
  * @apiParam {String} sort-by=distance&latitude=19.1231&longitude=45.1231 Sorts all the Hackathons in ascending radial order from the coordinates
  * @apiParam {String} sort-by=date Sorts all the Hackathons in ascending order of start-date. Eg: sort-by=date
  *
- * @apiSampleRequest curl -X GET "https://wolfbeacon.com/api/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+ * @apiSampleRequest curl -X GET "https://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
  * 
  * @apiSuccessExample {json} Success-Response:
  * {
