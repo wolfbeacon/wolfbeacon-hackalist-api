@@ -23,10 +23,9 @@ import java.util.List;
  * 
  * @apiParam {String} start-date (yyyy-MM-dd) Returns all the hackathons after this date. Eg: start-date=2015-10-10 Users unique ID.
  * @apiParam {String} end-date (yyyy-MM-dd) Returns all the hackathons before this date. Eg: end-date=2015-12-10
- * @apiParam {String} sort-by=distance&latitude=19.1231&longitude=45.1231 Sorts all the Hackathons in ascending radial order from the coordinates
- * @apiParam {String} sort-by=date Sorts all the Hackathons in ascending order of start-date. Eg: sort-by=date
+ * @apiParam {String="date","distance&latitude=12.345&longitude=67.890"} sort-by Sorts by date or radial distance (See sample request)
  *
- * @apiSampleRequest curl -X GET "https://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+ * @apiSampleRequest https://api.wolfbeacon.com/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002
  * 
  * @apiSuccessExample {json} Success-Response:
  * {
