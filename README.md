@@ -4,6 +4,8 @@ An API built as a Microservice around [Hackalist.org](www.hackalist.org) data th
 
 Powered by Java using [Spring-Boot](https://projects.spring.io/spring-boot/), [Hibernate](http://hibernate.org/orm/) and [H2 Database Engine](http://www.h2database.com/html/main.html).
 
+Currently in use at WolfBeacon. Check docs at [https://api.wolfbeacon.com/docs/#api-Hackalist](https://api.wolfbeacon.com/docs/#api-Hackalist)
+
 ## Using the API
 
 ### Endpoint
@@ -23,11 +25,11 @@ Powered by Java using [Spring-Boot](https://projects.spring.io/spring-boot/), [H
 
 #### Example Query 1 (By date):
 
-> curl -X GET "https://wolfbeacon.com/api/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
+> curl -X GET "https://wolfbeacon.com/api/v1/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
 
 #### Example Query 2 (By distance/coordinates): 
 
-> curl -X GET "https://wolfbeacon.com/api/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+> curl -X GET "https://wolfbeacon.com/api/v1/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
 #### Result:
