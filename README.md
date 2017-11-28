@@ -1,10 +1,11 @@
+
+## *Project has been migrated to Kotlin. See master branch*
+
 # WolfBeacon Hackalist API
 
 An API built as a Microservice around [Hackalist.org](www.hackalist.org) data that lists all the Hackathons around you on the planet, sorted date wise or in radial distance on entering your location coordinates.
 
 Powered by Java using [Spring-Boot](https://projects.spring.io/spring-boot/), [Hibernate](http://hibernate.org/orm/) and [H2 Database Engine](http://www.h2database.com/html/main.html).
-
-Currently in use at WolfBeacon. Check docs at [https://api.wolfbeacon.com/docs/#api-Hackalist](https://api.wolfbeacon.com/docs/#api-Hackalist)
 
 ## Using the API
 
