@@ -9,9 +9,7 @@ ENV PATH ${PATH}:${GRADLE_HOME}/bin
 ENV GRADLE_USER_HOME /gradle
 
 WORKDIR /usr/local
-
 RUN apk add --update openssl
-
 RUN wget  https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
     unzip gradle-$GRADLE_VERSION-bin.zip && \
     mv gradle-$GRADLE_VERSION gradle && \
