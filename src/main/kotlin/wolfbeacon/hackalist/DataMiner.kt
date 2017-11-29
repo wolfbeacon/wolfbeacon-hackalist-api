@@ -18,6 +18,9 @@ import java.text.SimpleDateFormat
 import java.time.ZoneId
 import java.util.*
 
+/*
+Periodically configured to pull raw data from the hackalist API and update the DB
+*/
 
 @Component
 @Transactional
