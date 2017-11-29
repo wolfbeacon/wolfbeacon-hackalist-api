@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.text.SimpleDateFormat
 
 /**
+ * @apiVersion 1.0.0
  * @api {get} /hackalist/hackathons/ Get Hackalist Hackathons
  * @apiName GetHackalistHackathons
  * @apiGroup Hackalist
@@ -51,12 +52,10 @@ import java.text.SimpleDateFormat
  */
 
 /**
- * @api {get} /hackalist/ping/ Get Hackalist Service
+ * @apiVersion 1.0.0
+ * @api {get} /hackalist/ping/ Ping Hackalist Service
  * @apiName PingHackalist
  * @apiGroup Hackalist
- *
- * @apiParamExample Sample Request
- * https://api.wolfbeacon.com/v1/hackalist/ping
  *
  * @apiSuccessExample {json} Success-Response (HTTP/1.1 200 OK):
  * Ping Successful
