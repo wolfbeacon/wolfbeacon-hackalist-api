@@ -71,7 +71,7 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 ## Local Setup
 
-###### Dependencies: [Kotlin](https://kotlinlang.org/docs/tutorials/getting-started.html), [Gradle](https://gradle.org/install/)
+##### Dependencies: [Kotlin](https://kotlinlang.org/docs/tutorials/getting-started.html), [Gradle](https://gradle.org/install/)
 
 * `git clone https://github.com/wolfbeacon/wolfbeacon-server`
 * Rename `applications-test.properties` to `application.properties` and complete configuration details - *GOOGLE_MAPS_API_KEY*, *START_YEAR*, *START_MONTH* and Database credentials.
@@ -79,7 +79,7 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 
 ## Deploying with Docker
-###### Note: Configure `application.properties` before deployment
+##### Note: Configure `application.properties` before deployment
 
 * `sudo docker build -t wolfbeacon-hackalist-api .`
 * `sudo docker run -p 8080:80 wolfbeacon-hackalist-api`
