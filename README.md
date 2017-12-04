@@ -27,11 +27,11 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 #### Example Query 1 (By date):
 
-> curl -X GET "https://wolfbeacon.com/api/v1/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
+> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
 
 #### Example Query 2 (By distance/coordinates): 
 
-> curl -X GET "https://wolfbeacon.com/api/v1/hackalist-hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
 #### Result:
@@ -73,7 +73,7 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 ##### Dependencies: [Kotlin](https://kotlinlang.org/docs/tutorials/getting-started.html), [Gradle](https://gradle.org/install/)
 
-* `git clone https://github.com/wolfbeacon/wolfbeacon-server`
+* `git clone https://github.com/wolfbeacon/wolfbeacon-hackalist-api`
 * Rename `applications-test.properties` to `application.properties` and complete configuration details - *GOOGLE_MAPS_API_KEY*, *START_YEAR*, *START_MONTH* and Database credentials.
 * `./gradlew bootRun`
 
