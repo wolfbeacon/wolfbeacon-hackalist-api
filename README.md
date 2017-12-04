@@ -12,13 +12,13 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 ### Endpoint
 `GET /v1/hackalist/hackathons/`
-##### Updated every 12 hours from Hackalist with data present from 2016 onwards
+##### Updated every 12 hours from Hackalist with data present from 2017 onwards
 
 
 #### Parameters Required:
-* `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2015-10-10*
+* `start-date` (*yyyy-MM-dd*): Returns all the hackathons *after* this date. Eg: *start-date=2017-10-10*
 
-* `end-date` (*yyyy-MM-dd*): Returns all the hackathons *before* this date. Eg: *end-date=2015-12-10*
+* `end-date` (*yyyy-MM-dd*): Returns all the hackathons *before* this date. Eg: *end-date=2017-12-10*
 
 * `sort-by`:
     1. `distance` (*sort-by*, *latitude*, *longitude*): Sorts all the Hackathons in ascending radial order from the coordinates entered. Eg: *sort-by=distance&latitude=19.1231&longitude=45.1231*
@@ -27,11 +27,11 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 #### Example Query 1 (By date):
 
-> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=date"
+> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2017-01-01&end-date=2017-01-30&sort-by=date"
 
 #### Example Query 2 (By distance/coordinates): 
 
-> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2016-01-01&end-date=2016-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
+> curl -X GET "https://api.wolfbeacon.com/v1/hackalist/hackathons?start-date=2017-01-01&end-date=2017-01-30&sort-by=distance&latitude=40.7127837&longitude=-74.00594130000002"
 
 
 #### Result:
@@ -39,28 +39,28 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 {
   ...
     {
-    "id": 20160916552226390,
-    "title": "Hack the North",
-    "eventLink": "https://hackthenorth.com/",
-    "startDate": "2016-09-15",
-    "endDate": "2016-09-17",
-    "lastUpdatedDate": "2016-11-13T00:00:00.000+0000",
-    "year": 2016,
-    "location": "Waterloo, ON, Canada",
-    "host": "Hack the North",
-    "length": 36,
-    "size": "1000",
-    "travel": true,
-    "prize": true,
-    "highSchoolers": true,
-    "cost": "free",
-    "facebookLink": "https://www.facebook.com/hackthenorth",
-    "twitterLink": "https://twitter.com/hackthenorth",
-    "googlePlusLink": "",
-    "imageLink": "https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/13501875_1423460301013883_426092165374437510_n.png?oh=23ff635c68eee2faa74b376adc7982fd&oe=58CE1F88",
-    "latitude": 43.4642578,
-    "longitude": -80.5204096,
-    "notes": ""
+        "id": 201701201955420960,
+        "title": "PennApps XV",
+        "eventLink": "http://pennapps.com/",
+        "startDate": "2017-01-20",
+        "endDate": "2017-01-22",
+        "lastUpdatedDate": "2017-12-01T03:26:31.244+0000",
+        "year": 2017,
+        "location": "Philadelphia, PA, United States",
+        "host": "University of Pennsylvania",
+        "length": 48,
+        "size": "unknown",
+        "travel": true,
+        "prize": null,
+        "highSchoolers": true,
+        "cost": "free",
+        "facebookLink": "https://www.facebook.com/pennapps/?fref=ts",
+        "twitterLink": "https://twitter.com/pennapps",
+        "googlePlusLink": "",
+        "imageLink": "https://pbs.twimg.com/profile_images/930281893752442880/EFCW9AZJ_normal.jpg",
+        "latitude": 39.9525839,
+        "longitude": -75.1652215,
+        "notes": ""
     },
   ...
 }
