@@ -83,3 +83,7 @@ This API was previously written in Java and migrated to Kotlin as an experiment 
 
 * `sudo docker build -t wolfbeacon-hackalist-api .`
 * `sudo docker run -p 8080:80 wolfbeacon-hackalist-api`
+
+## AWS CodeBuild Env Variables
+
+`HACKALIST_CONFIG_PATH` - src/resources/application.properties S3 path
