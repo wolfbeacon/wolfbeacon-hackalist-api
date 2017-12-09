@@ -2,7 +2,7 @@
 
 An API Microservice built on top of [Hackalist.org](www.hackalist.org) data which lists all the Hackathons around you on the planet, sorted datewise and by radial distance on entering your location coordinates.
 
-Powered by [Kotlin](https://kotlinlang.org/), [Spring-Boot](https://projects.spring.io/spring-boot/) and [H2 Database Engine](http://www.h2database.com/html/main.html). Configuration is written using the [Gradle Kotlin DSL Plugin](https://github.com/gradle/kotlin-dsl) which allows for Gradle configuration to be written in Kotlin itself. 
+Written in [Kotlin](https://kotlinlang.org/), powered by [Spring-Boot](https://projects.spring.io/spring-boot/) and [H2 Database Engine](http://www.h2database.com/html/main.html). Configuration is written using the [Gradle Kotlin DSL Plugin](https://github.com/gradle/kotlin-dsl) which allows for Gradle configuration to be written in Kotlin itself. 
 
 Currently in production use at WolfBeacon and publicly accessible. See usage docs at **https://api.wolfbeacon.com/docs/#api-Hackalist**
 
