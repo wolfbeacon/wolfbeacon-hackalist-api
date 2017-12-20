@@ -59,7 +59,6 @@ import java.text.SimpleDateFormat
  *
  * @apiSuccessExample {json} Success-Response (HTTP/1.1 200 OK):
  * Ping Successful
- *}
  */
 
 @RestController
